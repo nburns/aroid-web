@@ -1,0 +1,31 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Aroid" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - link "Privacy" [ref=e4] [cursor=pointer]:
+      - /url: /privacy
+  - banner [ref=e5]:
+    - heading "Aroid" [level=1] [ref=e6]
+    - paragraph [ref=e7]: Listen to what matters to you.
+    - paragraph [ref=e8]: Your time is valuable. Aroid puts you in control of every minute — so you can focus on the content you actually came for. All running locally on the powerful device already in your pocket.
+    - link "Download on TestFlight" [ref=e9] [cursor=pointer]:
+      - /url: "#"
+  - generic [ref=e10]:
+    - heading "What Aroid does" [level=2] [ref=e11]
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - heading "Understands every episode" [level=3] [ref=e14]
+        - paragraph [ref=e15]: Aroid analyzes each episode to identify who is speaking and what kind of content is in each segment — interview, commentary, sponsor read, whatever it might be. That understanding drives everything else.
+      - generic [ref=e16]:
+        - heading "Navigate any episode" [level=3] [ref=e17]
+        - paragraph [ref=e18]: Speaker detection and content analysis combine to auto-generate chapters for every episode. See who's talking and what's being discussed, then jump straight there — no scrubbing required.
+      - generic [ref=e19]:
+        - heading "Skips what you don't want" [level=3] [ref=e20]
+        - paragraph [ref=e21]: Once Aroid knows what's in an episode, it can move past the parts you didn't come for. Automatically, before you even press play.
+  - generic [ref=e22]:
+    - heading "All of this runs on your device" [level=2] [ref=e23]
+    - paragraph [ref=e24]: Most apps that do any kind of audio analysis send your content to a server to do the heavy lifting. Aroid doesn't. Transcription, speaker detection, content classification — everything is computed locally, using the powerful hardware already in your pocket or on your desk.
+    - paragraph [ref=e25]: Your audio never leaves your device. No accounts, no cloud processing, no one else's servers involved.
+  - paragraph [ref=e27]: Your time is finite, listen to what matters to you.
+  - contentinfo [ref=e28]:
+    - paragraph [ref=e29]: © 2026
