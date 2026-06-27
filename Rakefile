@@ -13,7 +13,7 @@ task publish: :build do
 
   sh "git add -A"
   sh %(git commit -m "#{message}")
-  sh "git push"
+  sh "git push -u origin main"
 end
 
 task default: :run
