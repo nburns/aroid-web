@@ -110,20 +110,72 @@ nav {
   .cta {
     display: inline-block;
     margin-top: 2.5rem;
-    padding: 0.75rem 2.25rem;
-    background: $red;
-    color: $white;
+    position: relative;
+    padding-right: 42px;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9375rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
 
-    &:hover {
-      background: lighten($red, 8%);
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0.75rem 2.25rem;
+      background: linear-gradient(180deg, #d42020 0%, #9a1212 100%);
+      color: $white;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(180deg, #d42020 0%, #9a1212 100%);
+      clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    }
+
+    &::before {
+      right: 22px;
+      width: 14px;
+      height: 100%;
+    }
+
+    &::after {
+      right: 4px;
+      width: 7px;
+      height: 100%;
+    }
+
+    &:hover span,
+    &:hover::before,
+    &:hover::after {
+      background: linear-gradient(180deg, #e02828 0%, #aa1616 100%);
+    }
+
+    &.shooting {
+      animation: shoot-left 0.35s cubic-bezier(0.4, 0, 1, 1) forwards;
+      pointer-events: none;
+    }
+
+    &.returning {
+      animation: return-right 0.55s cubic-bezier(0.2, 0, 0.4, 1) forwards;
     }
   }
+}
+
+@keyframes shoot-left {
+  0%   { transform: translateX(0);      opacity: 1; }
+  12%  { transform: translateX(10px);   opacity: 1; }
+  100% { transform: translateX(-110vw); opacity: 0; }
+}
+
+@keyframes return-right {
+  0%   { transform: translateX(110vw);  opacity: 0; }
+  70%  { transform: translateX(-10px);  opacity: 1; }
+  100% { transform: translateX(0);      opacity: 1; }
 }
 
 .features {
