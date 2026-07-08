@@ -3,10 +3,10 @@ activate :autoprefixer do |prefix|
 end
 
 set :build_dir, 'docs'
+activate :directory_indexes
 
 configure :development do
   activate :livereload
-  activate :directory_indexes
 end
 
 configure :build do
