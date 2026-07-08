@@ -3,3 +3,6 @@
 build/
 .playwright-mcp/
 *.png
+share/node_modules/
+share/dist/
+source/javascripts/share.js

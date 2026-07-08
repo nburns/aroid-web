@@ -1,8 +1,13 @@
 task :run do
+  vite_pid = spawn("npm run dev", chdir: "share")
   sh "bundle exec middleman server"
+ensure
+  Process.kill("TERM", vite_pid) rescue nil
+  Process.wait(vite_pid) rescue nil
 end
 
 task :build do
+  sh "cd share && npm run build"
   sh "bundle exec middleman build"
 end
 

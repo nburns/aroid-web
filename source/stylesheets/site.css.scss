@@ -276,6 +276,159 @@ footer {
   font-size: 0.8125rem;
 }
 
+#share-root {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.share-loading {
+  color: rgba(#1a0533, 0.5);
+  font-size: 0.9375rem;
+}
+
+.share-feed-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $purple-mid;
+  margin-bottom: 1.25rem;
+}
+
+.share-artwork {
+  display: block;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 1.75rem;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba($purple-deep, 0.22);
+}
+
+.share-open-btn {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 0.75rem;
+  padding: 0.7rem 2rem;
+  background: linear-gradient(180deg, #d42020 0%, #9a1212 100%);
+  color: $white;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+
+  &:hover {
+    background: linear-gradient(180deg, #e02828 0%, #aa1616 100%);
+  }
+}
+
+.share-rss-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  color: $purple-mid;
+  font-size: 0.8125rem;
+  text-decoration: none;
+  margin-bottom: 2rem;
+
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+
+  &:hover {
+    color: $green-dark;
+  }
+}
+
+.share-divider {
+  border: none;
+  border-top: 1px solid rgba($purple, 0.15);
+  margin: 0 0 1.5rem;
+}
+
+.share-episode-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: $purple;
+  margin-bottom: 0.625rem;
+  text-align: left;
+}
+
+.share-episode-desc {
+  font-size: 0.9375rem;
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.share-error {
+  color: $red;
+  font-size: 0.9375rem;
+  padding: 1rem;
+  border: 1px solid $red;
+  border-radius: 4px;
+  background: rgba($red, 0.05);
+}
+
+.share-unreachable {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.8125rem;
+  color: $red;
+}
+
+@media (prefers-color-scheme: dark) {
+  body:has(#share-root) {
+    background: $purple-deep;
+  }
+
+  .share-loading {
+    color: rgba($cream, 0.4);
+  }
+
+  .share-feed-title {
+    color: $green;
+  }
+
+  .share-artwork {
+    box-shadow: 0 8px 32px rgba($green, 0.12);
+  }
+
+  .share-rss-link {
+    color: rgba($green, 0.7);
+
+    &:hover {
+      color: $green;
+    }
+  }
+
+  .share-divider {
+    border-top-color: rgba($green, 0.2);
+  }
+
+  .share-episode-title {
+    color: $green;
+  }
+
+  .share-episode-desc {
+    color: rgba($cream, 0.75);
+
+    a {
+      color: $green;
+    }
+  }
+
+  .share-unreachable {
+    color: rgba($red, 0.85);
+  }
+}
+
 .prose {
   max-width: 640px;
   margin: 0 auto;
