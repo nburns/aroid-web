@@ -77,6 +77,8 @@ function isSharePayload(v: unknown): v is SharePayload {
     if (typeof ep['t'] !== 'string') return false
     if (typeof ep['d'] !== 'string') return false
     if (typeof ep['a'] !== 'string') return false
+    if ('p' in ep && ep['p'] !== undefined && typeof ep['p'] !== 'string') return false
+    if ('dur' in ep && ep['dur'] !== undefined && (typeof ep['dur'] !== 'number' || ep['dur'] < 0)) return false
   }
   return true
 }

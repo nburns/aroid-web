@@ -277,24 +277,33 @@ footer {
 }
 
 #share-root {
-  max-width: 480px;
+  display: block;
+  max-width: 640px;
   margin: 0 auto;
-  padding: 3rem 2rem;
-  text-align: center;
+  padding: 3rem 1.5rem;
 }
 
 .share-loading {
+  text-align: center;
   color: rgba(#1a0533, 0.5);
   font-size: 0.9375rem;
 }
 
+.share-card {
+  background: $white;
+  border-radius: 16px;
+  padding: 2.25rem 2rem 2rem;
+  box-shadow: 0 12px 40px rgba($purple-deep, 0.08);
+  text-align: center;
+}
+
 .share-feed-title {
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: $purple-mid;
-  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+  color: $purple;
+  margin-bottom: 1.5rem;
+  line-height: 1.25;
 }
 
 .share-artwork {
@@ -346,25 +355,31 @@ footer {
   }
 }
 
-.share-divider {
-  border: none;
-  border-top: 1px solid rgba($purple, 0.15);
-  margin: 0 0 1.5rem;
+.share-episode {
+  background: $cream;
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem 1.5rem;
+  text-align: left;
 }
 
 .share-episode-title {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 700;
   color: $purple;
+  margin-bottom: 0.25rem;
+  line-height: 1.35;
+}
+
+.share-episode-meta {
+  font-size: 0.8125rem;
+  color: rgba(#1a0533, 0.55);
   margin-bottom: 0.625rem;
-  text-align: left;
 }
 
 .share-episode-desc {
   font-size: 0.9375rem;
   color: #444;
   line-height: 1.6;
-  text-align: left;
 }
 
 .share-error {
@@ -392,12 +407,17 @@ footer {
     color: rgba($cream, 0.4);
   }
 
+  .share-card {
+    background: lighten($purple-deep, 4%);
+    box-shadow: 0 12px 40px rgba(#000, 0.35);
+  }
+
   .share-feed-title {
-    color: $green;
+    color: $cream;
   }
 
   .share-artwork {
-    box-shadow: 0 8px 32px rgba($green, 0.12);
+    box-shadow: 0 8px 32px rgba(#000, 0.4);
   }
 
   .share-rss-link {
@@ -408,12 +428,16 @@ footer {
     }
   }
 
-  .share-divider {
-    border-top-color: rgba($green, 0.2);
+  .share-episode {
+    background: rgba(#000, 0.25);
   }
 
   .share-episode-title {
     color: $green;
+  }
+
+  .share-episode-meta {
+    color: rgba($cream, 0.5);
   }
 
   .share-episode-desc {

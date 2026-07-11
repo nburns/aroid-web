@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["45T95LQM6S.io.burns.Aroid"],
+        "components": [
+          { "/": "/share/*" }
+        ]
+      }
+    ]
+  }
+}

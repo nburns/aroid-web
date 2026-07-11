@@ -252,22 +252,31 @@ footer {
   font-size: 0.8125rem; }
 
 #share-root {
-  max-width: 480px;
+  display: block;
+  max-width: 640px;
   margin: 0 auto;
-  padding: 3rem 2rem;
-  text-align: center; }
+  padding: 3rem 1.5rem; }
 
 .share-loading {
+  text-align: center;
   color: rgba(26, 5, 51, 0.5);
   font-size: 0.9375rem; }
 
+.share-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.25rem 2rem 2rem;
+  -webkit-box-shadow: 0 12px 40px rgba(19, 4, 40, 0.08);
+          box-shadow: 0 12px 40px rgba(19, 4, 40, 0.08);
+  text-align: center; }
+
 .share-feed-title {
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #7230c0;
-  margin-bottom: 1.25rem; }
+  letter-spacing: -0.01em;
+  color: #4b1590;
+  margin-bottom: 1.5rem;
+  line-height: 1.25; }
 
 .share-artwork {
   display: block;
@@ -315,23 +324,28 @@ footer {
   .share-rss-link:hover {
     color: #009940; }
 
-.share-divider {
-  border: none;
-  border-top: 1px solid rgba(75, 21, 144, 0.15);
-  margin: 0 0 1.5rem; }
+.share-episode {
+  background: #f7f5ff;
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem 1.5rem;
+  text-align: left; }
 
 .share-episode-title {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 700;
   color: #4b1590;
-  margin-bottom: 0.625rem;
-  text-align: left; }
+  margin-bottom: 0.25rem;
+  line-height: 1.35; }
+
+.share-episode-meta {
+  font-size: 0.8125rem;
+  color: rgba(26, 5, 51, 0.55);
+  margin-bottom: 0.625rem; }
 
 .share-episode-desc {
   font-size: 0.9375rem;
   color: #444;
-  line-height: 1.6;
-  text-align: left; }
+  line-height: 1.6; }
 
 .share-error {
   color: #cc1f1f;
@@ -352,19 +366,25 @@ footer {
     background: #130428; }
   .share-loading {
     color: rgba(247, 245, 255, 0.4); }
+  .share-card {
+    background: #1c063b;
+    -webkit-box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35); }
   .share-feed-title {
-    color: #00c853; }
+    color: #f7f5ff; }
   .share-artwork {
-    -webkit-box-shadow: 0 8px 32px rgba(0, 200, 83, 0.12);
-            box-shadow: 0 8px 32px rgba(0, 200, 83, 0.12); }
+    -webkit-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); }
   .share-rss-link {
     color: rgba(0, 200, 83, 0.7); }
     .share-rss-link:hover {
       color: #00c853; }
-  .share-divider {
-    border-top-color: rgba(0, 200, 83, 0.2); }
+  .share-episode {
+    background: rgba(0, 0, 0, 0.25); }
   .share-episode-title {
     color: #00c853; }
+  .share-episode-meta {
+    color: rgba(247, 245, 255, 0.5); }
   .share-episode-desc {
     color: rgba(247, 245, 255, 0.75); }
     .share-episode-desc a {

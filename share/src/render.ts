@@ -29,6 +29,21 @@ export function renderError(message: string, el: HTMLElement): void {
   el.appendChild(div)
 }
 
+function formatDuration(seconds: number): string {
+  const total = Math.round(seconds)
+  const h = Math.floor(total / 3600)
+  const m = Math.floor((total % 3600) / 60)
+  if (h > 0) return m > 0 ? `${h}h ${m}m` : `${h}h`
+  if (m > 0) return `${m}m`
+  return `${total}s`
+}
+
+function formatDate(iso: string): string | null {
+  const d = new Date(iso)
+  if (Number.isNaN(d.getTime())) return null
+  return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
+}
+
 export function renderCard(payload: SharePayload, el: HTMLElement): HTMLImageElement | null {
   el.innerHTML = ''
 
@@ -36,7 +51,7 @@ export function renderCard(payload: SharePayload, el: HTMLElement): HTMLImageEle
   card.className = 'share-card'
 
   // Feed title
-  const feedTitle = document.createElement('p')
+  const feedTitle = document.createElement('h1')
   feedTitle.className = 'share-feed-title'
   feedTitle.textContent = payload.f
   card.appendChild(feedTitle)
@@ -73,21 +88,35 @@ export function renderCard(payload: SharePayload, el: HTMLElement): HTMLImageEle
   rssLink.appendChild(rssText)
   card.appendChild(rssLink)
 
-  // Episode section
+  // Episode section (nested card)
   if (payload.e) {
-    const divider = document.createElement('hr')
-    divider.className = 'share-divider'
-    card.appendChild(divider)
+    const epCard = document.createElement('section')
+    epCard.className = 'share-episode'
 
     const epTitle = document.createElement('h2')
     epTitle.className = 'share-episode-title'
     epTitle.textContent = payload.e.t
-    card.appendChild(epTitle)
+    epCard.appendChild(epTitle)
+
+    const metaParts: string[] = []
+    if (payload.e.p) {
+      const dateStr = formatDate(payload.e.p)
+      if (dateStr) metaParts.push(dateStr)
+    }
+    if (typeof payload.e.dur === 'number') metaParts.push(formatDuration(payload.e.dur))
+    if (metaParts.length > 0) {
+      const meta = document.createElement('p')
+      meta.className = 'share-episode-meta'
+      meta.textContent = metaParts.join(' · ')
+      epCard.appendChild(meta)
+    }
 
     const epDesc = document.createElement('div')
     epDesc.className = 'share-episode-desc'
     epDesc.appendChild(sanitize(payload.e.d))
-    card.appendChild(epDesc)
+    epCard.appendChild(epDesc)
+
+    card.appendChild(epCard)
   }
 
   // Unreachable notice placeholder (appended later if needed)

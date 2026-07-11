@@ -31,19 +31,23 @@ The raw JSON before compression:
   "e": {
     "t": "Episode Title",
     "d": "Episode description text, truncated to ~500 characters recommended.",
-    "a": "https://example.com/artwork.jpg"
+    "a": "https://example.com/artwork.jpg",
+    "p": "2026-07-10T14:00:00Z",
+    "dur": 3720
   }
 }
 ```
 
-| Field | Type   | Required | Notes |
-|-------|--------|----------|-------|
-| `f`   | string | yes      | Display name of the podcast feed |
-| `u`   | string | yes      | Feed URL; must be a valid absolute URL |
-| `e`   | object | no       | Omit entirely for a feed-only share |
-| `e.t` | string | yes (if `e` present) | Episode title |
-| `e.d` | string | yes (if `e` present) | Episode description; truncate to ~500 chars to keep URL short |
-| `e.a` | string | yes (if `e` present) | Artwork image URL |
+| Field   | Type   | Required | Notes |
+|---------|--------|----------|-------|
+| `f`     | string | yes      | Display name of the podcast feed |
+| `u`     | string | yes      | Feed URL; must be a valid absolute URL |
+| `e`     | object | no       | Omit entirely for a feed-only share |
+| `e.t`   | string | yes (if `e` present) | Episode title |
+| `e.d`   | string | yes (if `e` present) | Episode description; truncate to ~500 chars to keep URL short |
+| `e.a`   | string | yes (if `e` present) | Artwork image URL |
+| `e.p`   | string | no       | Publish date as ISO 8601 (parsed by `new Date()`); rendered as a localized short date |
+| `e.dur` | number | no       | Episode duration in seconds (non-negative); rendered as `1h 23m` / `45m` |
 
 ## 3. Swift encoding snippet
 
@@ -121,9 +125,13 @@ Validation errors at steps 1-2 replace the entire share card with an error messa
   "e": {
     "t": "Episode 573: Gratuitous Headline Features",
     "d": "Marco, Casey, and John discuss WWDC, the new Mac Pro, and why nobody asked for that.",
-    "a": "https://atp.fm/artwork/atp-artwork.jpg"
+    "a": "https://atp.fm/artwork/atp-artwork.jpg",
+    "p": "2026-06-19T21:00:00Z",
+    "dur": 7245
   }
 }
 ```
+
+`e.p` and `e.dur` are optional — omit them for feeds where the sending app doesn't have the data yet. The share page renders `date · duration` when both are present, either alone, or nothing when neither is set.
 
 To generate the encoded URL for either: serialize to JSON (no extra whitespace), zlib-compress, base64url-encode, and append as the `p` fragment parameter per the Swift snippet above.
