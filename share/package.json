@@ -6,9 +6,11 @@
     "dev": "vite build --watch"
   },
   "dependencies": {
-    "fflate": "^0.8.2"
+    "fflate": "^0.8.2",
+    "mithril": "^2.2.2"
   },
   "devDependencies": {
+    "@types/mithril": "^2.2.7",
     "typescript": "^5.4.0",
     "vite": "^5.2.0"
   }

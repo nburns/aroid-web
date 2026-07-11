@@ -9,11 +9,3 @@ export async function pingFeed(url: string): Promise<'ok' | 'unreachable'> {
     throw err
   }
 }
-
-export function loadArtwork(url: string, imgEl: HTMLImageElement): Promise<boolean> {
-  return new Promise((resolve) => {
-    imgEl.onload = () => resolve(true)
-    imgEl.onerror = () => resolve(false)
-    imgEl.src = url
-  })
-}
